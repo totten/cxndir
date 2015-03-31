@@ -1,0 +1,32 @@
+{
+    "name": "totten/cxndir",
+    "require": {
+        "silex/silex": "~1.2",
+        "civicrm/civicrm-cxn-rpc": "dev-master#9266d6847ad51d32cfee5bd37ddb64e2acb606ba",
+        "symfony/console": "~2.6"
+    },
+    "repositories": [
+      {
+        "type": "git",
+        "url": "https://github.com/totten/civicrm-cxn-rpc"
+      }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Civi\\Cxn\\Dir\\": "src/"
+         }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tim Otten",
+            "email": "totten@civicrm.org"
+        }
+    ],
+    "bin": [
+        "bin/cxndir"
+    ],
+    "config": {
+        "bin-dir": "bin"
+    }
+}
