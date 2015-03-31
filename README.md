@@ -5,7 +5,7 @@ The CXN directory service.
 #### Get the code
 
 ```
-git clone https://github.com/totten/cxnapp
+git clone https://github.com/totten/cxndir
 cd cxndir
 composer install
 ```
