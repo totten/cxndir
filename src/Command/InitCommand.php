@@ -17,7 +17,7 @@ class InitCommand extends Command {
       ->setName('init')
       ->setDescription('Initialize the configuration files')
       ->setHelp('Example: cxndir init "C=US, O=My Org')
-      ->addArgument('basedn', InputArgument::OPTIONAL, 'The base DN for the CSR+certificate', 'O=DemoDir');
+      ->addArgument('basedn', InputArgument::OPTIONAL, 'The base DN for the CSR+certificate', 'C=US, O=DemoDir');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
