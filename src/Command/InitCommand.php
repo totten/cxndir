@@ -3,6 +3,7 @@ namespace Civi\Cxn\Dir\Command;
 
 use Civi\Cxn\Dir\DirConfig;
 use Civi\Cxn\Rpc\CA;
+use Civi\Cxn\Rpc\Constants;
 use Civi\Cxn\Rpc\KeyPair;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -15,8 +16,8 @@ class InitCommand extends Command {
     $this
       ->setName('init')
       ->setDescription('Initialize the configuration files')
-      ->setHelp('Example: cxndir init "O=DemoApp, CN=example.localhost"')
-      ->addArgument('dn', InputArgument::REQUIRED, 'The DN for the CSR+certificate');
+      ->setHelp('Example: cxndir init "C=US, O=My Org')
+      ->addArgument('basedn', InputArgument::OPTIONAL, 'The base DN for the CSR+certificate', 'O=DemoDir');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
@@ -26,7 +27,7 @@ class InitCommand extends Command {
       mkdir($config->getDir());
     }
 
-    $appDn = $input->getArgument('dn');
+    $appDn = $input->getArgument('basedn') . ', CN=' . Constants::OFFICIAL_APPMETAS_CN;
 
     if (!file_exists($config->getKeyFile())) {
       $output->writeln("<info>Create key file ({$config->getKeyFile()})</info>");
